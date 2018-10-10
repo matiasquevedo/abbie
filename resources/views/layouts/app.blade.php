@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'Diario') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <script src="{{ url('/plugins/jquery/jquery.js') }}"></script>
