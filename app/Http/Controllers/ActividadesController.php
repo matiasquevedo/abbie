@@ -37,6 +37,7 @@ class ActividadesController extends Controller
             $actividades->category;
             $actividades->user;
         });
+        //dd($actividades);
         return view('admin.articles.index')->with('actividades',$actividades);
     }
 

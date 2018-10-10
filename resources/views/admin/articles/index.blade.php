@@ -26,6 +26,7 @@
         </tr>
       </thead>
       <tbody>
+        {{$actividades}}
         @foreach($actividades as $actividad)
         <tr>
           <td>{{ Form::checkbox('box[]',$actividad->id, null, ['class' => 'field']) }}</td>
