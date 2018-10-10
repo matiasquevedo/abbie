@@ -17,14 +17,31 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ route('categories.index')}}">Categorias</a></li>
-        <li><a href="{{ route('actividades.index')}}">Actividades</a></li>
-        <li><a href="{{ route('admin.eventos.index')}}">Eventos</a></li>
-        <li><a href="{{ route('paquetes.index')}}">Paquetes</a></li>
-        <li><a href=" {{ route('informacion.index')}} ">Información</a></li>
-        <li><a href="">Galeria</a></li>
+        
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actividades <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('categories.index')}}">Categorias</a></li>
+            <li><a href="{{ route('actividades.index')}}">Actividades</a></li>
+            <li><a href="{{ route('paquetes.index')}}">Paquetes</a></li>
+            <li><a href=" {{ route('informacion.index')}} ">Información</a></li>
+            <li><a href="{{ route('admin.eventos.index')}}">Eventos</a></li>
+          </ul>
+        </li>        
         <li><a href="{{ route('proveedores.index')}}">Proveedores</a></li>
         <li><a href="{{ route('proyectos.index')}}">Proyectos</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fotos <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('albumes.index')}}">Fotos</a></li>
+            <li><a href="{{ route('albumes.create')}}">Nuevo Album</a></li>
+          </ul>
+        </li>
+
+
+        
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @guest

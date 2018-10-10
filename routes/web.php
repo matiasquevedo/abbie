@@ -175,6 +175,19 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 		'as'=>'hora.create'
 	]);
 
+	Route::resource('albumes','AlbumesController');
+	Route::get('albumnes/{id}/destroy',[
+		'uses'=>'AlbumesController@destroy',
+		'as'=>'albumes.destroy'
+	]);
+
+	Route::resource('fotos','FotosController');
+	Route::get('fotos/{id}/destroy',[
+		'uses'=>'FotosController@destroy',
+		'as'=>'fotos.destroy'
+	]);
+
+
 
 	
 
