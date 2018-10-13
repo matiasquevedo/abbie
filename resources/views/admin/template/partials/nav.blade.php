@@ -1,59 +1,68 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" href="{{ route('admin.inicio')}}">
-            Sitios WEBS
+            {{env('APP_NAME')}}
             <!--<img src="/images/embalsa.png" alt="" width="30px"> --> </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ route('categories.index')}}">Categorias</a></li>
-        <li><a href="{{ route('actividades.index')}}">Actividades</a></li>
-        <li><a href="{{ route('admin.eventos.index')}}">Eventos</a></li>
-        <li><a href="{{ route('paquetes.index')}}">Paquetes</a></li>
-        <li><a href=" {{ route('informacion.index')}} ">Información</a></li>
-        <li><a href="">Galeria</a></li>
-        <li><a href="{{ route('proveedores.index')}}">Proveedores</a></li>
-        <li><a href="{{ route('proyectos.index')}}">Proyectos</a></li>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ route('users.index')}}">&nbsp;<span class="sr-only">(current)</span></a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actividades</span></a>          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('categories.index')}}">Categorias</a>
+            <a class="dropdown-item" href="{{ route('actividades.index')}}">Actividades</a>
+            <!-- <div class="dropdown-divider"></div> -->
+            <a class="dropdown-item" href="{{ route('paquetes.index')}}">Paquetes</a>
+            <a class="dropdown-item" href=" {{ route('informacion.index')}} ">Información</a>
+            <a class="dropdown-item" href="{{ route('admin.eventos.index')}}">Eventos</a>
+          </div>
+        </li>        
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('proveedores.index')}}">Proveedores</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('proyectos.index')}}">Proyectos</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fotos</span></a>          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('albumes.index')}}">Fotos</a>
+            <a class="dropdown-item" href="{{ route('albumes.create')}}">Nuevo Album</a>
+          </div>
+        </li>
+
+
+        
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @guest
                             <li><a href="{{ route('login') }}">Login</a></li><!-- 
                             <li><a href="{{ route('register') }}">Register</a></li> -->
                         @else
-                            <li><a href=" {{route('cart.show')}} "><i class="fas fa-shopping-cart"></i></a></li>
-                            <li><a href=" {{route('principal')}} ">Pagina Principal</a></li>
+                            <li class="nav-item"><a class="nav-link" href=" {{route('cart.show')}} "><i class="fas fa-shopping-cart"></i></a></li>
+                            <li class="nav-item"><a class="nav-link" href=" {{route('principal')}} ">Pagina Principal</a></li>
 
-
-                             
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</span></a>          
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Cerrar Sesion
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                              </div>
                             </li>
                         @endguest
       </ul>
