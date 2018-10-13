@@ -30,10 +30,6 @@ class Actividad extends Model
         return $this->hasMany('App\ActividadPaquete');
     }
 
-    public function proveedor(){
-        return $this->belongsTo('App\Proveedor');
-    }
-
     public function scopePost($query){
         return $query->where('state',1);
     }

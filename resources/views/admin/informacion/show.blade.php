@@ -4,55 +4,54 @@
 @section('title', 'Información: '.$informacion->title)
 
 @section('content')
+<div>
+  <ol class="breadcrumb">
+    <li>Categoria: </li><br>
+    <li><a href="{{ route('categories.show',$informacion->category->id)}}">{{$informacion->category->name}}</a></li>
+  </ol>
   <div>
-    <ol class="breadcrumb">
-      <li><a href="{{ route('categories.show',$informacion->category->id)}}">{{$informacion->category->name}}</a></li>
-    </ol>
-    <div>
-      {{$informacion->created_at}}
-    </div>
-
-    <div>
-      {{$informacion->update_at}}
-    </div>
+    {{$informacion->created_at}}
   </div>
 
-	<div class="container-fluid">
-  		<h3>{{$informacion->title}} 
-  		@if($informacion->state == '0')
-			<span class="label label-danger">Sin Publicar</span>
-			<div class="btn btn-default"><a href="{{ route('informacion.post',$informacion->id)}}">Publicar</a></div>
-		@else
-			<span class="label label-success">Publicada</span>
-			<div class="btn btn-default"><a href="{{ route('informacion.undpost',$informacion->id)}}">No Publicar</a></div>
-  		@endif
-  		</h3>
+  <div>
+    {{$informacion->update_at}}
+  </div>
+</div>
 
-      <div>
-      </div>
-
-
-  		<div class="panel panel-default">
-  			<div class="panel-body" id="content">
-  				
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Descripción</h3><br>{!!$informacion->descripcion!!}</div>
-            <div class="col-md-6">
-            </div>
-          </div>
-
-  				
-  			</div>
-		</div>
-
+<div class="container">
+  <div class="text-center">
     <div>
-      <div>
-        <h4>Imagen de Portada</h4>
+      <div class="cambiar-portada">                      
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-edit"></i>
+        </button>
       </div>
-      <div>
-        <img src="/images/informacion/{{$image}}" alt="">
+      <img src="/images/informacion/{{$image}}" width="500">
+    </div>
+  </div>
+    <br>              
+    <h3>{{$informacion->title}}</h3>
+    @if($informacion->state == '0')
+    <div>          
+      <h4><span class="badge badge-danger">Sin Publicar</span></h4>
+      </span><a class="btn btn-success" href="{{ route('informacion.post',$informacion->id)}}">Publicar</a>
+    </div>
+    @else
+    <div>          
+      <h4><span class="badge badge-success">Publicada</span></h4>
+      <a class="btn btn-danger" href="{{ route('informacion.undpost',$informacion->id)}}">No Publicar</a>
+    </div>
+    @endif
+    <div class="panel panel-default">
+      <div class="panel-body" id="content">     
+        <div class="row">
+          <div class="col-md-6">
+            {!!$informacion->descripcion!!}
+          </div>
+        </div>                  
       </div>
     </div>
-	</div>
+  
+
+</div>
+
 @endsection

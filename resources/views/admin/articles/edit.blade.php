@@ -65,16 +65,6 @@
 				</div>
 
 				<div class="form-group">
-				{!! Form::label('proveedor_id','Proveedor') !!}
-				{!! Form::select('proveedor_id',$proveedores,$actividad->proveedor->id,['class'=>'form-control select-category','required']) !!}
-				</div>
-
-				<div class="form-group">
-				{!! Form::label('precioProveedor','Precio del Proveedor*') !!}
-				{!! Form::text('precioProveedor',$actividad->precioProveedor,['class'=>'form-control','required']) !!}
-				</div>
-
-				<div class="form-group">
 				{!! Form::label('precioPublico','Precio al Publico*') !!}
 				{!! Form::text('precioPublico',$actividad->precioPublico,['class'=>'form-control ','required']) !!}
 				</div>

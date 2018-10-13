@@ -8,7 +8,6 @@ use App\Tag;
 use App\Actividad;
 use App\Image;
 use App\User;
-use App\Proveedor;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ArticleRequest;
@@ -50,10 +49,9 @@ class ActividadesController extends Controller
     {
         //
         //dd("todo ok");
-        $proveedores = Proveedor::orderBy('empresa','ASC')->pluck('empresa','id');
         $categories = Category::orderBy('name','ASC')->pluck('name','id');
-        dd($categories);
-        return view('admin.articles.create')->with('categories',$categories)->with('proveedores',$proveedores);
+        //dd($categories);
+        return view('admin.articles.create')->with('categories',$categories);
     }
 
     /**
@@ -153,9 +151,8 @@ class ActividadesController extends Controller
         $actividad = Actividad::find($id);
         $image = DB::table('images')->where('actividad_id',$id)->value('foto');
         $actividad->category;
-        $proveedores = Proveedor::orderBy('empresa','ASC')->pluck('empresa','id');
         $categories = Category::orderBy('name','ASC')->pluck('name','id');
-        return view('admin.articles.edit')->with('categories',$categories)->with('actividad',$actividad)->with('proveedores',$proveedores)->with('image',$image);        
+        return view('admin.articles.edit')->with('categories',$categories)->with('actividad',$actividad)->with('image',$image);        
     }
 
     /**

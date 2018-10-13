@@ -41,7 +41,7 @@
 
 				<div class="form-group">
 				{!! Form::label('fecha','Fecha*') !!}
-				{!! Form::text('fecha',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
+				{!! Form::date('fecha',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
 				</div>
 
 				<div class="form-group">

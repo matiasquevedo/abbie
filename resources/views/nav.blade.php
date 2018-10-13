@@ -19,8 +19,8 @@
                 
             <ul class="navbar-nav mr-auto">
               @guest
-                  <li class="nav-item"><a href="{{ route('login') }}">Inciar Sesion</a></li> 
-                  <li class="nav-item"><a href="{{ route('register') }}">Registrarse</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a></li> 
+                  <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrarse</a></li>
               @else
                     <li class="nav-item">
                     @if(count(\Session::get('cart', array())))
@@ -43,6 +43,11 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</span></a>          
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(Auth::user()->type == "admin")
+                            <a class="dropdown-item" href="{{route('admin.inicio')}}">Mi Perfil</a>
+                        @else                                    
+                           <a class="dropdown-item" href="{{route('editor.inicio')}}">Mi Perfil</a>
+                        @endif
                       <a class="dropdown-item" href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
