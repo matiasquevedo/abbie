@@ -9,7 +9,7 @@ class Paquete extends Model
     //
     protected $table = "paquetes";
 
-    protected $fillable = ['title','descripcion','precioCliente','precioEmpresa','descuento','fechaInicio','fechaTermino','user_id'];
+    protected $fillable = ['title','descripcion','precioCliente','descuento','fechaInicio','fechaTermino','user_id'];
 
     public function user(){
     	return $this->belongsTo('App\User');

@@ -12,9 +12,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link" href="{{ route('users.index')}}">&nbsp;<span class="sr-only">(current)</span></a></li>
 
-        <li class="nav-item"><a class="nav-link" href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>
-        
-        
+        <li class="nav-item"><a class="nav-link" href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>        
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actividades</span></a>          
@@ -22,13 +20,11 @@
             <a class="dropdown-item" href="{{ route('categories.index')}}">Categorias</a>
             <a class="dropdown-item" href="{{ route('actividades.index')}}">Actividades</a>
             <!-- <div class="dropdown-divider"></div> -->
-            <a class="dropdown-item" href="{{ route('paquetes.index')}}">Paquetes</a>
-            <a class="dropdown-item" href=" {{ route('informacion.index')}} ">Información</a>
-            <a class="dropdown-item" href="{{ route('admin.eventos.index')}}">Eventos</a>
+            <a class="dropdown-item" href="{{ route('paquetes.index')}}">Paquetes de Actividades</a>
           </div>
-        </li>        
-
-        <li class="nav-item"><a class="nav-link" href="{{ route('proveedores.index')}}">Proveedores</a></li>
+        </li> 
+        <li class="nav-item"><a class="nav-link" href=" {{ route('informacion.index')}} ">Información</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('admin.eventos.index')}}">Eventos</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('proyectos.index')}}">Proyectos</a></li>
 
         <li class="nav-item dropdown">
@@ -54,6 +50,11 @@
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</span></a>          
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if(Auth::user()->type == "admin")
+                                    <a class="dropdown-item" href="{{route('admin.inicio')}}">Mi Perfil</a>
+                                @else                                    
+                                   <a class="dropdown-item" href="{{route('editor.inicio')}}">Mi Perfil</a>
+                                @endif
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

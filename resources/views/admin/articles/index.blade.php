@@ -4,7 +4,7 @@
 @section('title', 'Lista de Actividades')
 
 @section('content')
-
+<br>
 <div class="row">
   <div class="col-md-1">
     
@@ -35,17 +35,15 @@
           <td>{{$actividad->category->name}}</td>
           <td>
             @if($actividad->state == "0")
-              <span class="label label-danger">Sin Publicar</span>
+              <h5><span class="badge badge-danger">Sin Publicar</span></h5>
             @else
-              <span class="label label-success">Publicada</span>
+              <h5><span class="badge badge-success">Publicada</span></h5>
             @endif            
           </td>
           <td>
-            <a href="{{ route('actividades.edit', $actividad->id) }}" class="btn btn-warning">   <span class="glyphicon glyphicon-wrench">          
-              </span>
+            <a href="{{ route('actividades.edit', $actividad->id) }}" class="btn btn-warning"><i class="fas fa-wrench"></i>
             </a>
-            <a href="{{ route('actividades.destroy', $actividad->id) }}" class="btn btn-danger">
-              <span class="glyphicon glyphicon-remove"></span>
+            <a href="{{ route('actividades.destroy', $actividad->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
             </a>
           </td>
         </tr>

@@ -23,7 +23,7 @@
 		
 	@endif
 
-	<div class="container">
+	<div class="container"><br>
 
 		<div>
 			<h3>Nueva Actividad</h3>
@@ -61,16 +61,6 @@
 				<div class="form-group">
 				{!! Form::label('category_id','Categoria*') !!}
 				{!! Form::select('category_id',$categories,null,['class'=>'form-control select-category','required']) !!}
-				</div>
-
-				<div class="form-group">
-				{!! Form::label('proveedor_id','Proveedor*') !!}
-				{!! Form::select('proveedor_id',$proveedores,null,['class'=>'form-control select-category','required']) !!}
-				</div>
-
-				<div class="form-group">
-				{!! Form::label('precioProveedor','Precio del Proveedor*') !!}
-				{!! Form::text('precioProveedor',null,['class'=>'form-control','required']) !!}
 				</div>
 
 				<div class="form-group">

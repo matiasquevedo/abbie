@@ -20,7 +20,6 @@ class AddPaquetesTable extends Migration
             $table->string('title');
             $table->longText('descripcion');
             $table->string('precioCliente');
-            $table->string('precioEmpresa');
             $table->string('descuento');
             $table->string('fechaInicio');
             $table->string('fechaTermino');

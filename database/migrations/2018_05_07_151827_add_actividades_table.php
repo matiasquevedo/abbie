@@ -25,17 +25,13 @@ class AddActividadesTable extends Migration
             $table->longText('recomendacion'); 
 
             $table->string('precioPublico');
-            $table->string('precioProveedor');
             $table->string('descuento');
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->integer('proveedor_id')->unsigned();
 
             //llaves foraneas
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');
-
             $table->timestamps();
 
         });

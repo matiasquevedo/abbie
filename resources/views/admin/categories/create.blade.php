@@ -4,7 +4,8 @@
 @section('title', 'Nuevo Categoria')
 
 @section('content')
-	
+<div class="container">
+	<br>
 	@if(count($errors)>0)
 
 		<div class="alert alert-danger">
@@ -38,6 +39,6 @@
 
 
 	{!! Form::close() !!}
-
-
+	
+</div>
 @endsection

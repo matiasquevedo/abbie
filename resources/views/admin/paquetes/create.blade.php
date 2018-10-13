@@ -61,13 +61,8 @@
 
   			<div class="col-md-4">
   				<div class="form-group">
-  				{!! Form::label('actividades','actividades*') !!}
+  				{!! Form::label('actividades','Actividades*') !!}
   				{!! Form::select('actividades[]',$actividades,null,['class'=>'form-control select-tag','multiple']) !!}
-  				</div>
-
-  				<div class="form-group">
-  				{!! Form::label('precioEmpresa','Precio del Proveedor*') !!}
-  				{!! Form::text('precioEmpresa',null,['class'=>'form-control','required']) !!}
   				</div>
 
   				<div class="form-group">

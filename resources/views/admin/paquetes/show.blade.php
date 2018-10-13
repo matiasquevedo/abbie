@@ -4,21 +4,25 @@
 @section('title', 'Paquete: '.$paquete->title)
 
 @section('content')
-	<div class="container-fluid">
-  		<h3>{{$paquete->title}} 
-  		@if($paquete->state == '0')
-			<span class="label label-danger">Sin Publicar</span>
-			<div class="btn btn-default"><a href="{{ route('paquetes.post',$paquete->id)}}">Publicar</a></div>
-		@else
-			<span class="label label-success">Publicada</span>
-			<div class="btn btn-default"><a href="{{ route('paquetes.undpost',$paquete->id)}}">No Publicar</a></div>
-  		@endif
-  		</h3>
+<div class="container">
+  		<h3>{{$paquete->title}}</h3>
+      <h4>${{$paquete->precioCliente}} con {{$paquete->descuento}}% OFF <br></h4>
 
+  		@if($paquete->state == '0')
+      <div>          
+        <h4><span class="badge badge-danger">Sin Publicar</span></h4>
+        </span><a class="btn btn-success" href="{{ route('paquetes.post',$paquete->id)}}">Publicar</a>
+      </div>
+      @else
+      <div>          
+        <h4><span class="badge badge-success">Publicada</span></h4>
+        <a class="btn btn-danger" href="{{ route('paquetes.post',$paquete->id)}}">No Publicar</a>
+      </div>
+  		@endif
+  		
       <div>
       	Precios: <br>
       	Cliente: ${{$paquete->precioCliente}} <br>
-      	Costo: ${{$paquete->precioEmpresa}} <br>
       	Descuento: % {{$paquete->descuento}} OFF <br>
       </div>
 
